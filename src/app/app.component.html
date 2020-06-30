@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-4">
+      <h1 class="text-center">Todo - List</h1>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let todo of todolists">
+            <td>{{ todo.id }}</td>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.description }}</td>
+
+            <td>
+              <button type="button" class="btn btn-info btn-sm mr-2" (click)="showEditTodoForm(todo)">Edit</button>
+
+              <button type="button" class="btn btn-danger btn-sm" (click)="removeTodo(todo)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" (click)="showAddTodoForm()">Add New Todo Task</button>
+
+      <div class="mt-4">
+        <form *ngIf="todoForm">
+          <h2>Add New Task</h2>
+          <p>Title: <input type="text" name="title" [(ngModel)]="newTodo.title" /></p>
+          <p>Description: <input type="text" name="description" [(ngModel)]="newTodo.description" /></p>
+          <p>
+            <button type="button" class="btn btn-primary mr-2" (click)="saveTodo(newTodo)">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="cancelNewTodo()">Cancel</button>
+          </p>
+        </form>
+
+        <form *ngIf="editTodoForm">
+          <h2>Edit Task Details</h2>
+          <p>Title: <input type="text" name="title" [(ngModel)]="editedTodo.title" /></p>
+          <p>Description: <input type="text" name="description" [(ngModel)]="editedTodo.description" /></p>
+          <p>
+            <button type="button" class="btn btn-primary mr-2" (click)="updateTodo()">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="cancelEdits()">Cancel</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
