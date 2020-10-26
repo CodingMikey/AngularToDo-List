@@ -10,12 +10,12 @@ export class TodoService {
     {
       id: 1,
       title: 'Angular',
-      description: 'Gain more experience with angular by building 3 full stack apps!'
+      description: 'Gain more experience Angular'
     },
     {
       id: 2,
-      title: 'Expore EventBuilder',
-      description: 'Check out the EventBuilder Portal & Documentation'
+      title: '.NET Core',
+      description: 'Continue studying .NET Framework & C#'
     }
   ];
 
